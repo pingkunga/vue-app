@@ -3,7 +3,7 @@ name: 'build and deploy production'
 on:
   push:
     tags:
-      - '*'
+      - 'V9999'
 
 jobs:
   build-production-job:
