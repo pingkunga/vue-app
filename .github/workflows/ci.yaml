@@ -8,18 +8,26 @@ on:
 jobs:
   lint-job:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        #os: [ubuntu-latest, windows-latest]
+        node-version: [16.x, 18.x]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set Node.js v 18.x
+      - name: Set Node.js v ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
-            
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
       - run: npm ci
         
       - name: Run Lint
         run: npm run lint
+      
+      - name: Run Unit Test
+        run: npm run test:unit
 
                 
     
