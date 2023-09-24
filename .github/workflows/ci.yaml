@@ -1,17 +1,26 @@
 name: 'CI'
 
 on: 
-    push:
-        branches: 
-            - main
+  push:
+    branches: 
+        - main
 
 jobs:
-    lint-job:
-        run-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: '18.'
+  lint-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Node.js v 18.x
+        uses: actions/setup-node@3
+        with:
+          node-version: '18.x'
+            
+      - run: npm ci
+        
+      - name: Run Lint
+        run: npm run lint
+
+                
     
 
