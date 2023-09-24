@@ -38,11 +38,12 @@ jobs:
           path: dist
                 
       - run: ls dist
+      #Check Build Folder
       
       - uses: actions/checkout@v4
       - name: publish vue to github pages
         uses: SerhiiKa/VuePagesAction@1.0.4
         with:
-          username: ${{ github.actor }} #codingthailand
-          reponame: ${{ github.event.repository.name }}  #vue-github-app
+          username: ${{ github.actor }} 
+          reponame: ${{ github.event.repository.name }}
           token: ${{ secrets.GITHUB_TOKEN }}
