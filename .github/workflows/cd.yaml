@@ -39,7 +39,9 @@ jobs:
                 
       - run: ls dist
       #Check Build Folder
-      
+      #document: https://github.com/xRealNeon/VuePagesAction
+      #action: https://github.com/SerhiiKa/VuePagesAction
+
       - uses: actions/checkout@v4
       - name: publish vue to github pages
         uses: SerhiiKa/VuePagesAction@1.0.4
